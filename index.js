@@ -11,10 +11,6 @@ app.use(express.static('public'));
 
 const reversiReglas = require('./private/reversiReglas');
 
-app.get('/', (req, res) => {
-	res.sendFile(path.resolve(__dirname, './index.js'));
-});
-
 app.get('/reversi', (req, res) => {
 	let idPartida = req.query.idPartida;
 	if (idPartida == null) {
