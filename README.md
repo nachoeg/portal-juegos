@@ -1,6 +1,7 @@
 # Portal de juegos
 
 Proyecto propuesto por la materia de **Seminario de Lenguajes: JS** por la [**Facultad de Informática de la UNLP**](https://www.info.unlp.edu.ar/), con el fin de aprender a como armar una aplicación, tanto desde el front-end como desde el back-end.
+[**Consigna**](#consigna-del-trabajo-práctico-integrador).
 
 ## Probar la aplicación
 
@@ -47,7 +48,7 @@ Los juegos que deben implementarse son los que siguen.
 - [Reversi](https://es.wikipedia.org/wiki/Reversi)
 - [Batalla Naval](<https://es.wikipedia.org/wiki/Batalla_naval_(juego)>)
 
-> El repositorio original cuenta con los dos juegos, sin embargo, en este repositorio solo estoy subiendo el Reversi, porque desde mi punto de vista, es el que esta más pulido de los dos (sin embargo ambos juegos no difieren mucho en funcionalidades).
+> El repositorio original también cuenta con el Batalla Naval, pero en este repositorio solo estoy subiendo el Reversi. Ya que este es el que más tiempo de desarrollo tiene, por lo tanto, es el que tiene un mejor resultado y más caracteríticas pudimos agregar (sin embargo ambos juegos no difieren mucho en funcionalidades).
 
 ### Consideraciones Generales
 
