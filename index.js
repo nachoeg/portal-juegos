@@ -10,7 +10,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.static('public'));
 
-const reversiRules = require('./private/reversiReglas');
+const reversiReglas = require('./private/reversiReglas');
 
 app.get('/reversi', (req, res) => {
 	let idPartida = req.query.idPartida;
@@ -27,27 +27,24 @@ app.get('/reversi-salas', (req, res) => {
 app.get('/reversi/abandonar', (req, res) => {
 	let idPartida = req.query.idPartida;
 	let quienAbandono = parseInt(req.query.idJugador);
-
 	let ruta = './private/tableros/tableroReversi' + idPartida + '.json';
-	//pedir que envíen el nickname del jugador que abandonó y compararlo con los existentes
-	//para mostrar el jugador ganador
 	let jsonString = fs.readFileSync(ruta);
 	let tablero = JSON.parse(jsonString);
 
 	if (parseInt(tablero.cantJugadoresConectados) < 2) {
 		//no hay nadie mas en la partida, por lo tanto la borro
-		console.log('ruta de la partida a eliminar' + ruta);
+		console.log('Ruta de la partida a eliminar ' + ruta);
 		fs.unlinkSync(ruta, (err) => {
 			if (err) throw err;
 		});
 		return;
 	}
 	if (parseInt(tablero.cantJugadoresQueAbandonaron) == 0) {
+		//todavia hay un jugador en la partida, actualizo el tablero
 		tablero.cantJugadoresQueAbandonaron = 1;
 		tablero.cantJugadoresConectados--;
 		tablero.quienAbandono = quienAbandono;
 		let jsonData = JSON.stringify(tablero);
-		console.log(jsonData);
 		fs.writeFileSync(ruta, jsonData);
 	}
 });
@@ -56,7 +53,6 @@ app.get('/reversi/cargarTablero', (req, res) => {
 	let idPartida = req.query.idPartida;
 	let ruta = './private/tableros/tableroReversi' + idPartida + '.json';
 	let sala = fs.readFileSync(ruta);
-
 	sala = JSON.parse(sala);
 
 	res.json({
@@ -78,7 +74,6 @@ app.get('/reversi/cargarSalas', (req, res) => {
 		let sala = JSON.parse(jsonData);
 		arreglo.push({ nombreSala: sala.nombreSala, idPartida: sala.idPartida });
 	});
-	//console.log("Salas: \n", arreglo);
 	res.json(arreglo);
 });
 
@@ -106,6 +101,7 @@ app.get('/reversi/crearPartida', (req, res) => {
 	jsonString = JSON.stringify(tablero);
 	let rutaArchivoNuevo =
 		'./private/tableros/tableroReversi' + idPartida + '.json';
+	console.log('Ruta de la partida creada ' + rutaArchivoNuevo);
 	fs.writeFileSync(rutaArchivoNuevo, jsonString);
 
 	res.json({ codigoDeSeguridad: codigoNuevo, id: idPartida });
@@ -162,11 +158,7 @@ app.get('/reversi/unirse-a-partida', (req, res) => {
 	}
 });
 
-//la finalidad es que el jugador que no está jugando, pregunte acá si ya es su turno
-//recibo nombre del usuario y el id de la partida
 app.get('/reversi/es-mi-turno', (req, res) => {
-	//esto que recibo acá no es el id ni el nombre del jugador porque esos datos son publicos
-	//sino que es el id q generó el back y le devolvió de manera "secreta" a cada jugador
 	let consultante = parseInt(req.query.codigoJugador);
 	let idJugador = req.query.idJugador;
 	let idPartida = req.query.idPartida;
@@ -191,7 +183,7 @@ app.get('/reversi/es-mi-turno', (req, res) => {
 		tablero.quienAbandono != idJugador
 	) {
 		//si ya abandonó una persona
-		console.log('ruta de la partida a eliminar' + ruta);
+		console.log('Ruta de la partida a eliminar ' + ruta);
 		fs.unlinkSync(ruta, (err) => {
 			if (err) throw err;
 		});
@@ -206,9 +198,6 @@ app.get('/reversi/es-mi-turno', (req, res) => {
 			ganadorNick = tablero.jugadores.blancas.datosPublicos.nickname;
 			perdedorNick = tablero.jugadores.negras.datosPublicos.nickname;
 		}
-		console.log(ganadorNick);
-		console.log('impresion del tablero');
-		console.log(tablero);
 		res.json({
 			finPartida: true,
 			motivo: 'abandono',
@@ -225,13 +214,8 @@ app.get('/reversi/es-mi-turno', (req, res) => {
 			});
 		} else {
 			if (consultante == codigoJugadorActual) {
-				//al ingresar acá es porque es mi turno, pero primero hay que chequear que
-				//tenga movimientos
-				//esta Variable es un boolean
-
-				console.log('----------------------------');
-				console.log('jugador numero ' + codigoJugadorActual);
-				let tengoMovimientos = reversiRules.movimientosRestantes(tablero);
+				//al ingresar acá es porque es mi turno, pero primero hay que chequear que tenga movimientos
+				let tengoMovimientos = reversiReglas.movimientosRestantes(tablero);
 				let fichasNegras = parseInt(
 					tablero.jugadores.negras.datosPublicos.fichas
 				);
@@ -253,12 +237,8 @@ app.get('/reversi/es-mi-turno', (req, res) => {
 						},
 					});
 				} else {
-					console.log('No tengo movimientos');
 					//si no tengo tengo movimientos, chequeo la flag de movimientos
 					let jugadorSinMovimientos = parseInt(tablero.jugadorSinMovimientos);
-					console.log(
-						'cant de jugadores sin movimientos: ' + jugadorSinMovimientos
-					);
 					if (jugadorSinMovimientos == 0) {
 						tablero.jugadorSinMovimientos = 1;
 						//jugadorSinMovimientos es un "flag" que va a estar en 0 cuando el jugador anterior
@@ -266,15 +246,12 @@ app.get('/reversi/es-mi-turno', (req, res) => {
 
 						tablero.estado.jugador = jugadorActual == 1 ? 2 : 1; //cambio el turno
 						tablero.estado.turno++;
-						// //En este caso, tengo que modificar el archivo Json, para que quede guardado que se cambió de turno
+						//En este caso, tengo que modificar el archivo Json, para que quede guardado que se cambió de turno
 						let estado = tablero.estado;
 						tablero = JSON.stringify(tablero);
 						fs.writeFileSync(ruta, tablero);
 
 						//le toca a este jugador, pero no tiene movimientos, así que su turno se saltea
-						console.log(
-							'Es mi turno pero no tengo movimientos, pero le paso el mando al otro jugador, que puede tener movimientos'
-						);
 						res.json({
 							finPartida: false,
 							faltaOponente: false,
@@ -308,7 +285,7 @@ app.get('/reversi/es-mi-turno', (req, res) => {
 						tablero.cantJugadoresQueFinalizaron++;
 						if (tablero.cantJugadoresQueFinalizaron == 2) {
 							//si ambos finalizaron borro la partida
-							console.log('finalizaron ambos, borrando partida');
+							console.log('Ruta de la partida a eliminar ' + ruta);
 							fs.unlinkSync(ruta, (err) => {
 								if (err) throw err;
 							});
@@ -356,20 +333,12 @@ app.get('/reversi/validar', (req, res) => {
 		let ruta = './private/tableros/tableroReversi' + idPartida + '.json';
 		let tablero = fs.readFileSync(ruta);
 		let situacionNueva = JSON.parse(tablero);
-		/*     console.log("impresion dentro de /reversi/validar");
-    
-        console.log(situacionNueva.idPartida);
-        console.log(situacionNueva.estado.jugador);
-        console.log("-----------------------"); */
-		let validacion = reversiRules.validarCasillero(
+		let validacion = reversiReglas.validarCasillero(
 			fila,
 			columna,
 			situacionNueva
 		);
 		let resultado = validacion.tablero;
-		/*     console.log("segunda impresion dentro de /reversi/validar");
-        console.log(validacion.ok);
-        console.log("------------"); */
 		let jsonString = JSON.stringify(resultado);
 		if (validacion.ok) {
 			fs.writeFileSync(ruta, jsonString);
@@ -399,7 +368,7 @@ app.get('/reversi/posibles-cambios', (req, res) => {
 		let tablero = fs.readFileSync(ruta);
 		let situacionInicial = JSON.parse(tablero);
 
-		let validacion = reversiRules.posiblesCambios(
+		let validacion = reversiReglas.posiblesCambios(
 			fila,
 			columna,
 			situacionInicial

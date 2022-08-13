@@ -22,7 +22,6 @@ function cambiarTema(background, darkmode) {
 }
 
 const isResponseOk = (response) => {
-	console.log('La respuesta es', response);
 	if (!response.ok) {
 		return Promise.reject({
 			status: response.status,
