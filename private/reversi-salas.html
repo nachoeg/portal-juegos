@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Reversi</title>
+		<link rel="stylesheet" href="css/salas.css" />
+		<link rel="stylesheet" href="css/global.css" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/favicon/site.webmanifest" />
+	</head>
+
+	<body>
+		<div class="container">
+			<a href="/" class="volver">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="16"
+					height="16"
+					fill="currentColor"
+					class="bi bi-arrow-left"
+					viewBox="0 0 16 16"
+				>
+					<path
+						fill-rule="evenodd"
+						d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+					/>
+				</svg>
+				Volver
+			</a>
+			<div class="temasBox">
+				<div onclick="cambiarTema('#f3f3f3', 'no')">
+					<div class="temaBoton claro"></div>
+					<span>Claro</span>
+				</div>
+				<div onclick="cambiarTema('#202020', 'yes')">
+					<div class="temaBoton oscuro"></div>
+					<span>Oscuro</span>
+				</div>
+				<div onclick="cambiarTema('url(img/mesa.png)', 'yes')">
+					<div class="temaBoton clasico"></div>
+					<span>Clásico</span>
+				</div>
+			</div>
+			<div class="box">
+				<div class="box" id="boxHeader">
+					<h1>Salas</h1>
+					<div id="barraCrearSala">
+						<input
+							type="text"
+							name="nombreSala"
+							id="nombreSala"
+							placeholder="Crear sala"
+							autofocus
+						/>
+						<button type="button" id="botonDiscoSalas" onclick="cambiarDisco()">
+							<div id="discoSalas" class="discoNegro"></div>
+						</button>
+						<input
+							type="button"
+							value="+"
+							id="botonSala"
+							onclick="crearSala()"
+						/>
+					</div>
+				</div>
+				<ul id="listaSalas">
+					<div id="salasPlaceholder">No hay salas disponibles.</div>
+				</ul>
+				<a class="boton" id="botonPartidaEnJuego"
+					>Volver a la partida en juego</a
+				>
+				<a
+					onclick="confirmarAbandonar()"
+					class="boton"
+					id="botonAbandonarPartida"
+					>Abandonar partida</a
+				>
+			</div>
+			<div id="confirmarAbandono" class="modal">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2>Abandonar partida</h2>
+						<!-- Cerrar ventana -->
+						<span id="cerrarConfirmarAbandono" class="close">&times;</span>
+					</div>
+					<div class="modal-body">
+						<p>
+							Estás por abandonar la partida, por lo tanto ganará el otro
+							jugador.
+						</p>
+						<p>¿Deseas continuar?</p>
+					</div>
+					<div class="modal-footer">
+						<div id="botonConfirmarAbandono" class="boton">Confirmar</div>
+					</div>
+				</div>
+			</div>
+			<div id="finalPartida" class="modal">
+				<div class="modal-content">
+					<div class="modal-header">
+						<!-- Titulo (ganador o perdedor) -->
+						<h2 id="resultado"></h2>
+						<!-- Cerrar ventana -->
+						<span id="cerrarFinalPartida" class="close">&times;</span>
+					</div>
+					<div class="modal-body">
+						<!-- motivo (si gano por puntos o si se rindio el otro jugador)-->
+						<p id="motivo"></p>
+					</div>
+					<div class="modal-footer">
+						<a href="/reversi-salas">
+							<div id="botonRecargarSalas" class="boton">Recargar salas</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/reversi-salas.js"></script>
+		<script src="js/global.js"></script>
+	</body>
+</html>

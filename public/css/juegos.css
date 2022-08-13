@@ -1,0 +1,127 @@
+body {
+	overflow: hidden;
+}
+
+.tablero {
+	display: grid;
+	background-color: black;
+	border: solid 10px black;
+	border-radius: 10px;
+	box-shadow: 0px 0px 15px 2px #000;
+}
+
+input {
+	border-radius: 5px;
+}
+
+.tablero > * {
+	text-align: center;
+	font-size: 40px;
+	cursor: pointer;
+	user-select: none;
+	border: black 1px solid;
+	border-radius: 5px;
+}
+
+.jugadorActivo {
+	outline: 7px rgb(255, 153, 0) solid;
+}
+
+.incorrecto {
+	animation-name: incorrecto;
+	animation-duration: 0.4s;
+}
+
+@keyframes incorrecto {
+	from {
+		background-color: red;
+		transform: scale(0.95);
+	}
+}
+
+.box {
+	width: fit-content;
+	padding: 10px;
+	margin: 0 auto;
+	border-radius: 10px;
+	background-color: #eee;
+	border: 2px black solid;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: black;
+	box-shadow: 0px 0px 10px 0px #000;
+}
+
+.box form {
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.box form div {
+	display: flex;
+	gap: 10px;
+}
+
+.box form div input {
+	flex-shrink: 1;
+	width: 100%;
+}
+
+.box * {
+	text-align: center;
+}
+
+.abandonarBox {
+	cursor: pointer;
+	display: flex;
+	position: absolute;
+	align-items: center;
+	gap: 5px;
+	bottom: 10px;
+	right: 10px;
+	background-color: rgb(255, 0, 0);
+	border-radius: 20px;
+	padding: 10px;
+	color: white;
+	transition: 0.2s;
+	box-shadow: 0px 0px 5px 0px #000;
+}
+
+.abandonarBox > span {
+	display: none;
+}
+
+.abandonarBox:hover > span {
+	display: block;
+}
+
+.abandonarBox:hover {
+	background-color: rgb(150, 0, 0);
+}
+
+#botonSalir {
+	background-color: rgb(0, 102, 255);
+}
+
+#botonSalir:hover {
+	background-color: rgb(0, 62, 155);
+}
+
+#botonConfirmarAbandono {
+	background-color: #ff5555;
+}
+
+#botonConfirmarAbandono:hover {
+	background-color: #7f2a2a;
+}
+
+#botonVolver {
+	background-color: rgb(0, 102, 255);
+}
+
+#botonVolver:hover {
+	background-color: rgb(0, 62, 155);
+}

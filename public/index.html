@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Portal de Juegos</title>
+		<link rel="stylesheet" href="css/global.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/favicon/site.webmanifest" />
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="temasBox">
+				<div onclick="cambiarTema('#f3f3f3', 'no')">
+					<div class="temaBoton claro"></div>
+					<span>Claro</span>
+				</div>
+				<div onclick="cambiarTema('#202020', 'yes')">
+					<div class="temaBoton oscuro"></div>
+					<span>Oscuro</span>
+				</div>
+				<div onclick="cambiarTema('url(img/mesa.png)', 'yes')">
+					<div class="temaBoton clasico"></div>
+					<span>Clásico</span>
+				</div>
+			</div>
+			<div id="logo">
+				<img src="favicon/android-chrome-192x192.png" alt="" />
+				<h1>ORTAL DE JUEGOS</h1>
+			</div>
+			<div class="gamesContainer">
+				<a class="box" id="batallaNaval">
+					<span>BATALLA NAVAL</span>
+				</a>
+				<a
+					href="/reversi-salas"
+					class="box"
+					id="reversi"
+					onclick="guardarNickname()"
+				>
+					<span>REVERSI</span>
+				</a>
+			</div>
+			<div id="nicknameForm">
+				<h2>Nickname</h2>
+				<input
+					type="text"
+					id="nicknameInput"
+					placeholder="Ingrese un nickname"
+					autofocus
+				/>
+			</div>
+		</div>
+		<script src="js/index.js"></script>
+		<script src="js/global.js"></script>
+	</body>
+</html>

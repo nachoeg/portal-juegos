@@ -1,0 +1,109 @@
+#logo {
+	display: flex;
+}
+
+#logo > h1 {
+	margin: auto;
+	font-size: 30px;
+	color: #ff5555;
+	font-family: Coiny, monospace;
+}
+
+#logo > img {
+	height: 40px;
+	margin: auto;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.gamesContainer {
+	margin: 20px;
+	gap: 50px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.box {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	height: 200px;
+	border: 2px solid black;
+	box-shadow: 0px 0px 20px 5px #000;
+	border-radius: 10px;
+	transition: 0.4s;
+	transition-timing-function: ease;
+}
+
+.box > span {
+	margin-top: auto;
+	text-align: center;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: white;
+}
+
+.box:hover {
+	transform: scale(1.2);
+	box-shadow: 0px 0px 5px 5px #000;
+}
+
+.box:hover > span {
+	display: block;
+}
+
+#batallaNaval {
+	background: #000000 url(../img/batalla_naval.png) center center/cover
+		no-repeat content-box;
+}
+
+#reversi {
+	background: #000000 url(../img/reversi.png) center center/cover no-repeat
+		content-box;
+}
+
+h1 {
+	text-align: center;
+}
+
+#nicknameForm {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#nicknameInput {
+	text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+	#logo > h1 {
+		font-size: 20px;
+	}
+
+	#logo > img {
+		height: 30px;
+	}
+
+	.container {
+		gap: 0px;
+	}
+
+	.gamesContainer {
+		gap: 20px;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#nicknameForm {
+		bottom: 0;
+	}
+}
+
+@media (hover: none) {
+	.box > span {
+		display: block;
+	}
+}
