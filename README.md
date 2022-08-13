@@ -2,6 +2,25 @@
 
 Proyecto propuesto por la materia de **Seminario de Lenguajes: JS** por la [**Facultad de Informática de la UNLP**](https://www.info.unlp.edu.ar/), con el fin de aprender a como armar una aplicación, tanto desde el front-end como desde el back-end.
 
+## Probar la aplicación
+
+### Online
+
+La aplicación esta desplegada en Heroku, en una cuenta gratis, y por lo tanto no tiene un buen rendimiento.
+
+Ingresar al siguiente [**link**](https://portal-juegos.herokuapp.com/).
+
+### Local (recomendada)
+
+Tiene un mejor rendimiento, ya que no requiere de un servidor. Requiere tener instalado **Node.js** y **NPM**.
+
+Los pasos para correr la aplicación:
+
+1. Clonar el repositorio.
+2. Instalar dependencias `npm install`.
+3. Correr la aplicación `npm start`.
+4. Abrir [**app**](http://localhost:3000/).
+
 ## Fotos
 
 ![Pagina de inicio](https://i.imgur.com/EzQGy3T.png)
@@ -66,9 +85,3 @@ Los juegos que deben implementarse son los que siguen.
 - Javascript
 - NodeJS
 - ExpressJS
-
-## Probar la aplicación
-
-1. Clonar el repositorio
-2. Instalar dependencias `npm install`
-3. Correr la aplicación `npm start`
