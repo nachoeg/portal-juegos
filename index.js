@@ -5,7 +5,6 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -388,6 +387,8 @@ app.get('/reversi/posibles-cambios', (req, res) => {
 	}
 });
 
-app.listen(PORT, () =>
-	console.log(`Servidor corriendo en: http://localhost:${PORT}`)
+app.listen(
+	process.env.PORT || 3000,
+	() => {}
+	// console.log(`Servidor corriendo en: http://localhost:${PORT}`)
 );
