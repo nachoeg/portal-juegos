@@ -1,6 +1,6 @@
 # Portal de juegos
 
-Proyecto propuesto por la materia de **Seminario de Lenguajes: JS** por la [**Facultad de Informática de la UNLP**](https://www.info.unlp.edu.ar/), con el fin de aprender a como armar una aplicación, tanto desde el front-end como desde el back-end.
+Proyecto grupal propuesto por la materia de **Seminario de Lenguajes: JS** por la [**Facultad de Informática de la UNLP**](https://www.info.unlp.edu.ar/), con el fin de aprender a como armar una aplicación, tanto desde el front-end como desde el back-end.
 [**Consigna**](#consigna-del-trabajo-práctico-integrador).
 
 ## Probar la aplicación
