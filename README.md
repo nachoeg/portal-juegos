@@ -5,15 +5,7 @@ Proyecto grupal propuesto por la materia de **Seminario de Lenguajes: JS** por l
 
 ## Probar la aplicación
 
-### Online
-
-La aplicación esta desplegada en Heroku, en una cuenta gratis, y por lo tanto no tiene un buen rendimiento.
-
-Ingresar al siguiente [**link**](https://portal-juegos.herokuapp.com/).
-
-### Local (recomendada)
-
-Tiene un mejor rendimiento, ya que no requiere de un servidor. Requiere tener instalado **Node.js** y **NPM**.
+Requiere tener instalado **Node.js** y **NPM**.
 
 Los pasos para correr la aplicación:
 
