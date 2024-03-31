@@ -15,8 +15,8 @@ Los pasos para correr la aplicación:
 
 ## Fotos
 
-![Pagina de inicio](https://i.imgur.com/EzQGy3T.png)
-![Salas](https://i.imgur.com/4wxnGeY.png)
-![Reversi](https://i.imgur.com/cKgdzYn.png)
-![Tema oscuro](https://i.imgur.com/E5tAf9Y.png)
-![Tema clásico](https://i.imgur.com/p6k0Bbn.png)
+![Pagina de inicio](https://github.com/nachoeg/portal-juegos/blob/master/screenshots/inicio.webp)
+![Salas](https://github.com/nachoeg/portal-juegos/blob/master/screenshots/salas.webp)
+![Reversi](https://github.com/nachoeg/portal-juegos/blob/master/screenshots/reversi-claro.webp)
+![Tema oscuro](https://github.com/nachoeg/portal-juegos/blob/master/screenshots/reversi-oscuro.webp)
+![Tema clásico](https://github.com/nachoeg/portal-juegos/blob/master/screenshots/reversi-clasico.webp)
