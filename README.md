@@ -15,7 +15,7 @@ Los pasos para correr la aplicación:
 
 ## Fotos
 
-![Demo](/screenshots/demo.webm.mov)
+![Demo](/screenshots/demo.mov)
 ![Pagina de inicio](/screenshots/inicio.webp)
 ![Salas](/screenshots/salas.webp)
 ![Reversi](/screenshots/reversi-claro.webp)
