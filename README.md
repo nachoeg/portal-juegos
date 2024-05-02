@@ -15,8 +15,9 @@ Los pasos para correr la aplicación:
 
 ## Fotos
 
-![Pagina de inicio](https://i.imgur.com/EzQGy3T.png)
-![Salas](https://i.imgur.com/4wxnGeY.png)
-![Reversi](https://i.imgur.com/cKgdzYn.png)
-![Tema oscuro](https://i.imgur.com/E5tAf9Y.png)
-![Tema clásico](https://i.imgur.com/p6k0Bbn.png)
+![Demo](/screenshots/demo.webm.mov)
+![Pagina de inicio](/screenshots/inicio.webp)
+![Salas](/screenshots/salas.webp)
+![Reversi](/screenshots/reversi-claro.webp)
+![Tema oscuro](/screenshots/reversi-oscuro.webp)
+![Tema clásico](/screenshots/reversi-clasico.webp)
