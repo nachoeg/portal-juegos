@@ -15,7 +15,7 @@ Los pasos para correr la aplicación:
 
 ## Fotos
 
-![Demo](/screenshots/demo.mp4)
+![Demo](https://github.com/nachoeg/portal-juegos/blob/master/screenshots/demo.mp4)
 ![Pagina de inicio](/screenshots/inicio.webp)
 ![Salas](/screenshots/salas.webp)
 ![Reversi](/screenshots/reversi-claro.webp)
